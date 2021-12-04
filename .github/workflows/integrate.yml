@@ -2,7 +2,7 @@ name : Node CI
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 # every workflow should have 1 or more jobs
 jobs:
