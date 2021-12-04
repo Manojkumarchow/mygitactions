@@ -1,0 +1,19 @@
+name : Node CI
+
+on:
+  pull_request:
+    branches: [ master ]
+
+# every workflow should have 1 or more jobs
+jobs:
+  test_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+    # it brings the source code on to the VM
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci # clean install
+      - run: npm test
+      - run: npm run build
